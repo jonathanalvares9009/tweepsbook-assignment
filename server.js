@@ -9,5 +9,5 @@ fastify.get("/", (req, res) => {
 })
 
 fastify.listen(PORT, process.env.HOST || '0.0.0.0', () => {
-    console.log("Server is runing on port http://localhost:5000");
+    console.log(`Server is runing on port ${PORT}`);
 })
