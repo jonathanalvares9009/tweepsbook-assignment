@@ -8,6 +8,6 @@ fastify.get("/", (req, res) => {
     res.status(200).send("Server is working")
 })
 
-fastify.listen(PORT, '0.0.0.0', (error, address) => {
-    fastify.log.info(`server listening on ${address}`)
+fastify.listen(PORT, () => {
+    fastify.log.info(`server listening on ${PORT}`)
 })
