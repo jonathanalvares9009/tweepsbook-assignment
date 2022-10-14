@@ -1,4 +1,4 @@
-const fastify = require('fastify')({ logger: true });
+const fastify = require('fastify')({ logger: process.env.LOG_LEVEL || false });
 const PORT = 5000 || process.env.PORT;
 
 require('./connection/config.js')
@@ -8,6 +8,6 @@ fastify.get("/", (req, res) => {
     res.status(200).send("Server is working")
 })
 
-fastify.listen(PORT, process.env.HOST || '0.0.0.0', () => {
-    console.log(`Server is runing on port ${PORT}`);
+fastify.listen(PORT, '0.0.0.0', (error, address) => {
+    fastify.log.info(`server listening on ${address}`)
 })
